@@ -50,14 +50,14 @@ def fitness(schedule: Chromosome) -> float:
         for (teacher, slot) in course[2]:
             if teacher in teacher_slots:
                 if slot in teacher_slots[teacher]:
-                    return 0, 0, 0
+                    return -300, 0, 0
                 else:
                     teacher_slots[teacher].append(slot)
             else:
                 teacher_slots[teacher] = [slot]
             if course[1] == "Lab":
                 if slot in local_lab_slots:
-                    return 0, 0, 0
+                    return -300, 0, 0
                 else:
                     local_lab_slots[slot] = True
             if course[1] == "Lab":
@@ -76,8 +76,8 @@ def fitness(schedule: Chromosome) -> float:
             unique_slots.add(slot)
         score += len(local_slots) / len(course[2]) # How many slots does a course cover relative to it section count
         score += len(local_days) / len(course[2])  # How many days does a course cover relative to it section count
-    # score /= len(schedule)
-
+    score /= len(schedule) 
+    score += 200
     conflict_sum = 0
     for conflict in conflicts.values():
         for value in conflict.values():
@@ -141,4 +141,4 @@ def run_ga(initial_population:int, mutation_rate: float, generations: int, size:
     print("Top 5: ", ",".join([str(fitness(x)[0]) for x in population[:5]]))
 
         
-run_ga(50_000, 0.1, 100, 60)
+run_ga(50_000, 0.1, 1000, 10)
