@@ -60,6 +60,7 @@ class Chromosome:
         self.late_penalty = self.attributes[2][3]
         self.saturday_penalty = self.attributes[2][4]
         self.sequenctial_pelanty = self.attributes[2][1]
+        print(self.fitness)
 
     def generate_chromosome(self,courses: list[Course]) -> Schedule:
         schedule = []
