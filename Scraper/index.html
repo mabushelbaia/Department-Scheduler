@@ -1,0 +1,2344 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Course Browser</title>
+
+        
+        <meta name="Description" content="ritaj.birzeit.edu - Academic and Administrative Portal for Birzeit, the Palestinian University in the West Bank." />
+        <meta name="keywords" content="Ritaj, Palestine, Jerusalem, Alquds, Ramallah, Birzeit, Bir Zeit, University, Israeli Palestinian conflict, Israel, Palistine, Peace Process, Hebron, Bethlehem, International Programme, International Program, Palestinian Legislative Council, PLO, Palestine Liberation Organisation, Palestinian National Authority, Palestinian Authority, PNA, PA, Palestinian, Israelis,  Oslo Agreements, West Bank, Gaza, Gaza Strip, Middle East, Al-Quds, Palestinian Culture, Arab World, Oslo, Al Quds, Palestinian Refugees, Al-Nakba, Edward Said, Naji Ali, Egypt, Jordan, Arabic" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="/resources/jquery/css/jquery-ui-latest.custom.css"  media="all" />
+        <link rel="stylesheet" type="text/css" href="/resources/master.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/resources/css/introjs.min.css" media="all" />
+        
+        <link rel="stylesheet" type="text/css" href="/resources/css/master.css" media="all" />
+        
+        <script src="/resources/ac.js"></script>
+        <script src="/resources/acs-subsite/core.js"></script>
+        <script src="/resources/jquery/jquery-latest.min.js"></script>
+        <script src="/resources/jquery/jquery-ui-latest.custom.min.js"></script>
+        <script src="/resources/intro.min.js"></script>
+        <script src="/resources/default.js"></script>
+        <script src="/resources/default2.js"></script>
+        
+            <script type="text/javascript">
+                var menuList = new Array();menuList[menuList.length] = {label: 'Academic - أكاديمي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Course Schedule - البرنامج الفصلي', value: '/student/schedule'};menuList[menuList.length] = {label: 'Course Browser - مستعرض المساقات', value: '/hemis/bu/hierarchy?mode=CB'};menuList[menuList.length] = {label: 'W Request - طلب الإنسحاب من مساق (W)', value: '/student/withdraw/'};menuList[menuList.length] = {label: 'Academic Applications - Specalization &amp; Transfer - الطلبات الأكاديمية - التحويل والتخصص', value: '/acap/application'};menuList[menuList.length] = {label: 'Education Diploma Program Application - طلب دبلوم تربية', value: '/student/forms/minor-diploma/'};menuList[menuList.length] = {label: 'Claiming Minor - التسجيل لتخصص فرعي', value: '/student/forms/minor-diploma/minor/'};menuList[menuList.length] = {label: 'Academic Research Proposals - مشاريع الأبحاث الأكاديمية', value: '/instructor/proposals/list'};menuList[menuList.length] = {label: 'Academic Mobility - Academic Mobility', value: '/be1/en/academic/mobility'};menuList[menuList.length] = {label: 'Devices Reservation Requests - طلبات حجز الأجهزة', value: '/be1/en/student/devices-reservation'};menuList[menuList.length] = {label: 'Withdraw from the University Request - تقديم طلب انسحاب من الجامعة', value: '/be1/en/student/gcr-clearance/'};menuList[menuList.length] = {label: 'Financial - مالي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Siblings Scholarship - منحة الأخوة', value: '/student/scholarships/list-brother-scholarship'};menuList[menuList.length] = {label: 'Administration - إداري', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Faculty Transfer Conditions - شروط التحويل بين الكليات', value: '/acap/transfer-conditions/list'};menuList[menuList.length] = {label: 'Work and Break Time Schedule for Departments - مواعيد دوام واستراحة الدوائر في الجامعة', value: '/dept-schedule/'};menuList[menuList.length] = {label: 'Midterm Exams Schedule - First Semester 2022/2023 - برنامج الإمتحانات النصفية - الفصل الأول 2023/2022', value: '/hemis-admin/final-exam/midterm-exams'};menuList[menuList.length] = {label: 'Complaints and Suggestions - شكاوى واقتراحات', value: '/suggestions/'};menuList[menuList.length] = {label: 'Personal Profile - الملف الشخصي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'My Contact Information - معلومات الإتصال', value: '/person-maintained/contact-info'};menuList[menuList.length] = {label: 'Library Books - الاستعارة من المكتبة', value: '/library/user-docs-status'};menuList[menuList.length] = {label: 'User Settings - الإعدادات الشخصية', value: '/users/'};menuList[menuList.length] = {label: 'Assign Appointments - حجز المواعيد (الساعات المكتبية،العيادات...)', value: '/appointments/'};menuList[menuList.length] = {label: 'Alerts via SMS - التنبيهات عبر الرسائل القصيرة', value: '/be1/ar/core/services/mobile-communication-select'};menuList[menuList.length] = {label: 'Cafeteria Prices - أسعار البيع في كافتريات الجامعة', value: '/cafeteria/2023/'};menuList[menuList.length] = {label: 'Eduroam network - Eduroam شبكة', value: '/be1/application/network-access/list-edu-roam-devices'};menuList[menuList.length] = {label: 'Update Vaccination File - COVID 19 - تحديث نموذج تلقي مطعوم كوفيد 19', value: '/hemis/covid19/vaccination/new'};menuList[menuList.length] = {label: 'Upload Vaccination Certificate- COVID 19 Or PCR Test - تحميل شهادة تلقي مطعوم كوفيد 19 أو فحص الـPCR', value: '/be1/medical/chronic-diseases/vaccination-certificate'};menuList[menuList.length] = {label: 'Services Requests - طلبات الدعم', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Drug Information Center - مركز المعلومات الدوائية', value: '/be1/medical/d-i-c/'};menuList[menuList.length] = {label: 'Student Menu - قائمة الطلبة', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Academic Record - السجل الأكاديمي', value: '/student/marks/term-summary'};menuList[menuList.length] = {label: 'Financial Record - السجل المالي', value: '/student/fin-balance'};menuList[menuList.length] = {label: 'Published Grades (1 st, HW, ..) - علامات الفصل (الإمتحان الأول، الثاني، ...)', value: '/student/marks/grades-sheet'};menuList[menuList.length] = {label: 'Community Work Record - سجل العمل التعاوني', value: '/student/comm-work'};menuList[menuList.length] = {label: 'Academic Messages - الرسائل الأكاديمية', value: '/student/academic-msgs/'};menuList[menuList.length] = {label: 'Student Plan - خطة الطالب', value: '/student/plan/'};menuList[menuList.length] = {label: 'Registration of Community Work - تسجيل لعمل تعاوني', value: '/hemis/community-work/work-apply-form'};menuList[menuList.length] = {label: 'Exchange of academic books - تبادل الكتب الجامعية', value: '/student/books/'};menuList[menuList.length] = {label: 'Authorization System - نظام التخويل', value: '/student/authorizations/'};menuList[menuList.length] = {label: 'Advisory Plan Sheet - الخطة الإرشادية للتخصص', value: '/student/plan/advisory-sheet/'};menuList[menuList.length] = {label: 'Scholarship Application - طلب منحة دراسية', value: '/be1/financial/student-aid/list-student-applications'};menuList[menuList.length] = {label: 'Student Employment - العمل الطلابي مدفوع الأجر', value: '/student/paid-work/student'};menuList[menuList.length] = {label: 'Hour Exams Dates - تواريخ الإمتحانات الشهرية', value: '/student/hour-exams'};menuList[menuList.length] = {label: 'Masari Certificate - شهادة مساري', value: '/be1/student/marks/masari-certificate'};menuList[menuList.length] = {label: 'Management Tasks - مهام إدارية', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Recommendation Requests - طلب توصية', value: '/student/forms/recommendation'};menuList[menuList.length] = {label: 'University Library - مكتبة الجامعة', value: '/library/'};menuList[menuList.length] = {label: 'University Laws and Regulations - قوانين وأنظمة الجامعة', value: '/university-laws/?root_node_id=100'};menuList[menuList.length] = {label: 'Solidarity Fund Instructions - تعليمات صندوق التضامن', value: '/hrm/forms/forms/solidarity/Solidarity_Fund_instructions'};menuList[menuList.length] = {label: 'Administrative Manual - الدليل الإداري', value: '/hrm/forms/forms/?file=admin-manual'};menuList[menuList.length] = {label: 'Hospitalities Prices in Central Cafeteria - اسعار الضيافات في الكافتريا المركزية', value: '/cafeteria/cafteria-official-prices'};
+            </script>
+        
+        
+    </head>
+    <body dir="ltr" class="ltr" >
+        
+            <div class="master-header" dir="ltr">
+                <div class="header-top">
+                    <a class="ritaj-logo" href="/">
+                        <img src="/images/ritaj-logo.png" />
+                    </a>
+                    <div class="site-name">
+                        Birzeit University Academic and Administrative Portal
+                        <div class="print-header">
+                            <br/>
+                            Mohammad Abu Shelbaia | 
+                            December 29, 2022 14:32 | 213.6.76.189
+                        </div>
+                    </div>
+                    <div class="user-area">
+                        
+                            <ul class="user-menu" data-step="1" data-intro="User account links">
+                                
+                                <li>
+                                    <a data-load-part="notifications" href="#">
+                                        <i class="fa fa-circle notification-icon" style="right: 20px;"></i>
+                                        <i class="fa fa-bell fa-2x"></i>
+                                        <div class="menu-title">Notifications</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="boards" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="right: 0px;"></i>
+                                        <i class="fa fa-newspaper-o fa-2x"></i>
+                                        <div class="menu-title">Boards</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="messages" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="right: 8px;"></i>
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                        <div class="menu-title">Messages</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="account" href="#">
+                                        <i class="fa fa-user fa-2x"></i>
+                                        <div class="menu-title">Account</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                            <div class="user-menu-loaded-parts"></div>
+                         
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-bottom clearfix">
+                    
+                        <div class="search-form">
+                            
+                                <input type="text" id="srch_menu" autocomplete="off" size="50" dir="ltr" placeholder="Type to search menu"  data-step="4" data-intro="Search boxes links"/>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        
+        <div id="slave" style="clear:both;" data-step="3" data-intro="Pages boxes and links">
+			<!--[if lt IE 11]>
+                <p class="wbr" style="text-align: center; font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;">
+                   You are using an <strong>outdated</strong> browser. <br />  Please <a target='_blank' href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.
+                </p>
+            <![endif]-->
+            <!-- Content Content Start -->
+            
+ 
+<style>
+	th, .alc {text-align:center;}
+	.gc {border:    1px solid #d9d9d9;}
+	.schd {font-family: verdana, sanserif; font-size:0.8em;}
+	.light_header {background-color: #98AFC7;}
+</style>
+<p align="center">
+	
+</p>	
+
+<h3 style="font-family: Tahoma; " dir="ltr" align="center">First Semester 2022/2023</h3>
+
+<h3 style="font-family: Tahoma; color: DarkGreen;" align="center">Bachelor Program of Electrical Engineering - برنامج بكالوريوس الهندسة الكهربائية</h3>
+<h4 style="font-family: Tahoma; color: Green;" align="center">Bachelor Level Courses of Electrical Engineering</h3>
+
+<h4 style="font-family: Tahoma;" dir="ltr" align="center">
+	Choose Semester: 
+	<select name="term" style="font-family: Tahoma;" dir="ltr"
+			onChange="document.location='courses?bu=278&mode=B&study_lang=&lang=en&term=' + this.value"><option value="1231">First Semester 2023/2024</option>
+<option value="1223">Summer Course 2022/2023</option>
+<option value="1222">Second Semester 2022/2023</option>
+<option value="1221" selected="selected">First Semester 2022/2023</option>
+<option value="1213">Summer Course 2021/2022</option>
+<option value="1212">Second Semester 2021/2022</option>
+<option value="1211">First Semester 2021/2022</option>
+<option value="1203">Summer Course 2020/2021</option>
+<option value="1202">Second Semester 2020/2021</option>
+<option value="1201">First Semester 2020/2021</option>
+<option value="1194">Second Summer Course 2019/2020</option>
+<option value="1193">First Summer Course 2019/2020</option>
+<option value="1192">Second Semester 2019/2020</option>
+<option value="1191">First Semester 2019/2020</option>
+<option value="1183">Summer Course 2018/2019</option>
+<option value="1182">Second Semester 2018/2019</option>
+<option value="1181">First Semester 2018/2019</option>
+<option value="1173">Summer Course 2017/2018</option>
+<option value="1172">Second Semester 2017/2018</option>
+<option value="1171">First Semester 2017/2018</option>
+<option value="1163">Summer Course 2016/2017</option>
+<option value="1162">Second Semester 2016/2017</option>
+<option value="1161">First Semester 2016/2017</option>
+<option value="1153">Summer Course 2015/2016</option>
+<option value="1152">Second Semester 2015/2016</option>
+<option value="1151">First Semester 2015/2016</option>
+<option value="1144">Second Summer Course 2014/2015</option>
+<option value="1143">First Summer Course 2014/2015</option>
+<option value="1142">Second Semester 2014/2015</option>
+<option value="1141">First Semester 2014/2015</option>
+<option value="1133">Summer Course 2013/2014</option>
+<option value="1132">Second Semester 2013/2014</option>
+<option value="1131">First Semester 2013/2014</option>
+<option value="1124">Second Summer Course 2012/2013</option>
+<option value="1123">First Summer Course 2012/2013</option>
+<option value="1122">Second Semester 2012/2013</option>
+<option value="1121">First Semester 2012/2013</option>
+<option value="1114">Second Summer Course 2011/2012</option>
+<option value="1113">First Summer Course 2011/2012</option>
+<option value="1112">Second Semester 2011/2012</option>
+<option value="1111">First Semester 2011/2012</option>
+<option value="1104">Second Summer Course 2010/2011</option>
+<option value="1103">First Summer Course 2010/2011</option>
+<option value="1102">Second Semester 2010/2011</option>
+<option value="1101">First Semester 2010/2011</option>
+<option value="1093">Summer Course 2009/2010</option>
+<option value="1092">Second Semester 2009/2010</option>
+<option value="1091">First Semester 2009/2010</option>
+<option value="1083">Summer Course 2008/2009</option>
+<option value="1082">Second Semester 2008/2009</option>
+<option value="1081">First Semester  2008/2009</option>
+<option value="1073">Summer Course 2007/2008</option>
+<option value="1072">Second Semester 2007/2008</option>
+<option value="1071">First Semester 2007/2008</option>
+<option value="1063">Summer Course 2006/2007</option>
+<option value="1062">Second Semester 2006/2007</option>
+<option value="1061">First Semester 2006/2007</option>
+<option value="1053">Summer Course 2005/2006</option>
+</select>
+</h4>
+
+<h4 style="font-family: Tahoma;" dir="ltr" align="center">
+	Study Language: 
+	<select name="term" style="font-family: Tahoma;" dir="ltr"
+			onChange="document.location='courses?bu=278&mode=B&lang=en&term=1221&study_lang=' + this.value">
+		<option value="">--- All languages ---</option>
+		<option value="ar">Arabic Language</option>
+		<option value="en">English Language</option>
+	</select>
+</h4>
+
+<table cellspacing="5" cellpadding="4" width="100%" style="padding:0.4em;" dir="ltr">
+		
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2101</td>
+					<td class="label" width="35%" align="center">مختبر أساسيات الدوائر الكهربائية</td>
+					<td class="label nv" width="35%" align="center">BASIC ELECTRICAL ENGINEERING LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">16 / 18</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>W</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri206</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2102</td>
+					<td class="label" width="35%" align="center">مختبر الدوائر الكهربائية</td>
+					<td class="label nv" width="35%" align="center">CIRCUITS LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">8 / 18</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri206</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2103</td>
+					<td class="label" width="35%" align="center">مختبر الدوائر والإلكترونيات</td>
+					<td class="label nv" width="35%" align="center">CIRCUITS AND ELECTRONICS LABORATORY</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">15 / 18</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri203</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">15 / 18</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T</td>
+                <td align='center'>08:30 - 11:10</td>
+                <td align='center'>Masri203</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">16 / 18</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>W</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Masri203</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2304</td>
+					<td class="label" width="35%" align="center">تحليل الدوائر الكهربائية</td>
+					<td class="label nv" width="35%" align="center">CIRCUIT ANALYSIS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">42 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S, W</td>
+                <td align='center'>12:50 - 14:05</td>
+                <td align='center'>Masri106</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">45 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>10:00 - 11:15</td>
+                <td align='center'>Masri504</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2307</td>
+					<td class="label" width="35%" align="center">الاحتمالات والإحصاء الهندسي</td>
+					<td class="label nv" width="35%" align="center">PROBABILITY AND ENGINEERING STATISTICS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Mohammad Khaleel Issa Jubran</td>
+		<td width="10%" class="gc alc">43 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>08:30 - 09:45</td>
+                <td align='center'>Masri302</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Alhareth M. T. Zyoud</td>
+		<td width="10%" class="gc alc">53 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>10:00 - 11:15</td>
+                <td align='center'>Masri404</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Mohammad Khaleel Issa Jubran</td>
+		<td width="10%" class="gc alc">45 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>08:30 - 09:45</td>
+                <td align='center'>Masri406</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">4</td>
+		<td width="25%" class="gc alc">Alhareth M. T. Zyoud</td>
+		<td width="10%" class="gc alc">50 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>12:50 - 14:05</td>
+                <td align='center'>Masri110</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">5</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">26 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri106</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2311</td>
+					<td class="label" width="35%" align="center">الدوائر الكهربائية 1</td>
+					<td class="label nv" width="35%" align="center">NETWORK ANALYSIS 1</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Alhareth M. T. Zyoud</td>
+		<td width="10%" class="gc alc">44 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S<br />M</td>
+                <td align='center'>12:50 - 14:05<br>12:50 - 14:05</td>
+                <td align='center'>Masri404<br />Masri106</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">39 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>10:00 - 11:15</td>
+                <td align='center'>Masri304</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2312</td>
+					<td class="label" width="35%" align="center">الإشارات والأنظمة</td>
+					<td class="label nv" width="35%" align="center">SIGNALS AND SYSTEMS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jamal Othman Hosen Seyam</td>
+		<td width="10%" class="gc alc">20 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>12:50 - 14:05</td>
+                <td align='center'>Masri202</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Jamal Othman Hosen Seyam</td>
+		<td width="10%" class="gc alc">30 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>11:25 - 12:40</td>
+                <td align='center'>Masri302</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2360</td>
+					<td class="label" width="35%" align="center">الإلكترونيات التمثيلية</td>
+					<td class="label nv" width="35%" align="center">ANALOG ELECTRONICS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">45 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S<br />M</td>
+                <td align='center'>10:00 - 11:15<br>10:00 - 11:15</td>
+                <td align='center'>Masri106<br />Masri108</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">45 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S, W</td>
+                <td align='center'>08:30 - 09:45</td>
+                <td align='center'>Masri108</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">46 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S<br />W</td>
+                <td align='center'>12:50 - 14:05<br>12:50 - 14:05</td>
+                <td align='center'>Masri108<br />Masri302</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE2408</td>
+					<td class="label" width="35%" align="center">الآلات الكهربائية</td>
+					<td class="label nv" width="35%" align="center">ELECTRICAL MACHINES</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">40 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>08:00 - 09:40</td>
+                <td align='center'>Masri204</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3101</td>
+					<td class="label" width="35%" align="center">مختبر الآلات الكهربائية</td>
+					<td class="label nv" width="35%" align="center">ELECTRICAL MACHINES LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">12 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad345</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">9 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>R</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad345</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3103</td>
+					<td class="label" width="35%" align="center">(مختبر الإلكترونيات التمثيلية (لطلبة هندسة الميكاترونكس</td>
+					<td class="label nv" width="35%" align="center">ANALOG ELECTRONICS LAB  (FOR MECHATRONIC STUDENTS)</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">16 / 18</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri203</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3112</td>
+					<td class="label" width="35%" align="center">مختبر الإلكترونيات</td>
+					<td class="label nv" width="35%" align="center">ELECTRONICS LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">14 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>W</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri203</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">17 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Masri203</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3302</td>
+					<td class="label" width="35%" align="center">أنظمة التحكم</td>
+					<td class="label nv" width="35%" align="center">CONTROL SYSTEMS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jamal Othman Hosen Seyam</td>
+		<td width="10%" class="gc alc">20 / 12</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>08:00 - 09:15</td>
+                <td align='center'>Masri404</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3304</td>
+					<td class="label" width="35%" align="center">الإلكترونيات 2</td>
+					<td class="label nv" width="35%" align="center">ELECTRONICS 2</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">48 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S, W</td>
+                <td align='center'>10:00 - 11:15</td>
+                <td align='center'>Masri108</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3305</td>
+					<td class="label" width="35%" align="center">إلكترونيات القوى</td>
+					<td class="label nv" width="35%" align="center">POWER ELECTRONICS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">27 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>11:25 - 12:40</td>
+                <td align='center'>Bamieh205</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3307</td>
+					<td class="label" width="35%" align="center">هندسة اضاءة وصوت</td>
+					<td class="label nv" width="35%" align="center">LIGHTING AND ACOUSTICS ENGINEERING</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Hussein Awadallah Ibrahim Zeitawi</td>
+		<td width="10%" class="gc alc">38 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>R</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad307</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">52 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Masri406</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3308</td>
+					<td class="label" width="35%" align="center">مبادئ وتطبيقات كهرو ميكانيكية</td>
+					<td class="label nv" width="35%" align="center">ELECTROMECHANICAL PRINCIPLES AND APPLICATIONS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">20 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>12:50 - 14:05</td>
+                <td align='center'>ALSADIK103</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3309</td>
+					<td class="label" width="35%" align="center">أنظمة الاتصالات</td>
+					<td class="label nv" width="35%" align="center">COMMUNICATION SYSTEMS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Wael A. M. Hashlamoun</td>
+		<td width="10%" class="gc alc">40 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>12:50 - 14:05</td>
+                <td align='center'>Masri108</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Ashraf Sulieman Awad Al-Rimawi</td>
+		<td width="10%" class="gc alc">55 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>08:30 - 09:45</td>
+                <td align='center'>Bamieh105</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Ashraf Sulieman Awad Al-Rimawi</td>
+		<td width="10%" class="gc alc">38 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S, M</td>
+                <td align='center'>10:00 - 11:15</td>
+                <td align='center'>Masri109</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">4</td>
+		<td width="25%" class="gc alc">Qadri A. A. Mayyala</td>
+		<td width="10%" class="gc alc">28 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S<br />M</td>
+                <td align='center'>12:50 - 14:05<br>12:50 - 14:05</td>
+                <td align='center'>Masri304<br />Masri110</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE3318</td>
+					<td class="label" width="35%" align="center">الكهرومغناطيسية</td>
+					<td class="label nv" width="35%" align="center">ELECTROMAGNETICS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Ashraf Sulieman Awad Al-Rimawi</td>
+		<td width="10%" class="gc alc">30 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>10:00 - 11:15</td>
+                <td align='center'>Masri108</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4102</td>
+					<td class="label" width="35%" align="center">مختبر أساسيات الآلات الكهربائية</td>
+					<td class="label nv" width="35%" align="center">FUNDAMENTALS OF ELECTRICAL MACHINES LAB.</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">13 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>R</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Aggad345</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">15 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad345</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4104</td>
+					<td class="label" width="35%" align="center">مختبر محاكاة هندسية</td>
+					<td class="label nv" width="35%" align="center">ENGINEERING SIMULATION LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jamal Othman Hosen Seyam</td>
+		<td width="10%" class="gc alc">21 / 20</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4105</td>
+					<td class="label" width="35%" align="center">مختبر التحكم وإلكترونيات القوى</td>
+					<td class="label nv" width="35%" align="center">CONTROL AND POWER ELECTRONICS LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">15 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>W</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad345</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4113</td>
+					<td class="label" width="35%" align="center">مختبر الاتصالات</td>
+					<td class="label nv" width="35%" align="center">COMMUNICATIONS LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Alhareth M. T. Zyoud</td>
+		<td width="10%" class="gc alc">16 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>R</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad341</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Ashraf Sulieman Awad Al-Rimawi</td>
+		<td width="10%" class="gc alc">11 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Aggad341</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Qadri A. A. Mayyala</td>
+		<td width="10%" class="gc alc">14 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad341</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">4</td>
+		<td width="25%" class="gc alc">Wael A. M. Hashlamoun</td>
+		<td width="10%" class="gc alc">12 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Aggad341</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">5</td>
+		<td width="25%" class="gc alc">Ashraf Sulieman Awad Al-Rimawi</td>
+		<td width="10%" class="gc alc">15 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Aggad341</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">6</td>
+		<td width="25%" class="gc alc">Qadri A. A. Mayyala</td>
+		<td width="10%" class="gc alc">8 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad341</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4202</td>
+					<td class="label" width="35%" align="center">التركيبات والمخططات الكهربائية</td>
+					<td class="label nv" width="35%" align="center">ELECTRICAL INSTALLATION AND DRAWING</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">28 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>10:00 - 10:50</td>
+                <td align='center'>Bamieh204</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lab</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">13 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>R</td>
+                <td align='center'>08:30 - 11:10</td>
+                <td align='center'>Masri303</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lab</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">15 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T</td>
+                <td align='center'>11:25 - 14:05</td>
+                <td align='center'>Masri303</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4300</td>
+					<td class="label" width="35%" align="center">التدريب العملي</td>
+					<td class="label nv" width="35%" align="center">PRACTICAL TRAINING</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Mahran S. R. Quraan</td>
+		<td width="10%" class="gc alc">18 / 35</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4302</td>
+					<td class="label" width="35%" align="center">أنظمة التحكم 1</td>
+					<td class="label nv" width="35%" align="center">CONTROL SYSTEMS 1</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jamal Othman Hosen Seyam</td>
+		<td width="10%" class="gc alc">26 / 23</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>T, R</td>
+                <td align='center'>08:00 - 09:15</td>
+                <td align='center'>Masri404</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4303</td>
+					<td class="label" width="35%" align="center">أساسيات الآلات الكهربائية</td>
+					<td class="label nv" width="35%" align="center">ELECTRICAL MACHINES FUNDAMENTALS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">55 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S, M</td>
+                <td align='center'>12:50 - 14:05</td>
+                <td align='center'>Masri406</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE4403</td>
+					<td class="label" width="35%" align="center">أنظمة القوى الكهربائية</td>
+					<td class="label nv" width="35%" align="center">POWER SYSTEMS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">24 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>S<br />M, W</td>
+                <td align='center'>10:00 - 10:50<br>10:00 - 11:15</td>
+                <td align='center'>Masri404<br />Masri404</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE5102</td>
+					<td class="label" width="35%" align="center">مختبر القوى</td>
+					<td class="label nv" width="35%" align="center">POWER LAB</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">12 / 15</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M</td>
+                <td align='center'>14:15 - 16:55</td>
+                <td align='center'>Aggad331/2</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE5200</td>
+					<td class="label" width="35%" align="center">مقدمة مشروع في الهندسة الكهربائية</td>
+					<td class="label nv" width="35%" align="center">INTRODUCTION TO GRADUATION PROJECT</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Ayman Ali Mohammad Hroub</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Ali Hasan Moath Abdo</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">4</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">5</td>
+		<td width="25%" class="gc alc">Hakam Suleiman Nu'Man Shehadeh</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">6</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">7</td>
+		<td width="25%" class="gc alc">Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">8</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">9</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">10</td>
+		<td width="25%" class="gc alc">Mahran S. R. Quraan</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">11</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">12</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">13</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">1 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE5300</td>
+					<td class="label" width="35%" align="center">مشروع في الهندسة الكهربائية</td>
+					<td class="label nv" width="35%" align="center">GRADUATION PROJECT</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Muhammad Sharif Mustafa Abu-Khaizaran</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">2</td>
+		<td width="25%" class="gc alc">Mahran S. R. Quraan</td>
+		<td width="10%" class="gc alc">3 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">3</td>
+		<td width="25%" class="gc alc">Jaser Abdel Mon'En Fayiz Sa'Ed</td>
+		<td width="10%" class="gc alc">2 / 3</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+                <td align='center'>N/A</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE5303</td>
+					<td class="label" width="35%" align="center">إدارة الآلات الكهربائية وأنواع خاصة من الآلات الكهربائية</td>
+					<td class="label nv" width="35%" align="center">ELECTRICAL MACHINE DRIVES AND SPECIAL MACHINES</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Mahran S. R. Quraan</td>
+		<td width="10%" class="gc alc">27 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>11:25 - 12:40</td>
+                <td align='center'>Masri202</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE5304</td>
+					<td class="label" width="35%" align="center">نظرية المعلومات والترميز</td>
+					<td class="label nv" width="35%" align="center">INFORMATION AND CODING THEORY</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Wael A. M. Hashlamoun</td>
+		<td width="10%" class="gc alc">53 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>11:25 - 12:40</td>
+                <td align='center'>Masri404</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+			</table>
+			</td>
+			</tr>
+			</table>
+			</tr>
+				
+		<tr>
+			<table cellspacing="0" cellpadding="2" width="100%" style="padding:0.4em;" dir="ltr">
+				<tr>
+					<td class="label nv b" width="10%" align="center">ENEE5307</td>
+					<td class="label" width="35%" align="center">الطاقة المتجددة وأنظمة القدرة الكهروضوئية</td>
+					<td class="label nv" width="35%" align="center">RENEWABLE ENERGY AND PHOTOVOLTAIC POWER SYSTEMS</td>
+					<td class="label nv" width="20%" align="center">Study Language: English</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<table cellspacing="3" cellpadding="2" width="100%"  dir="ltr">
+							<tr>
+								<td width="15%" class="gc alc light_header" bgcolor="#e9e9e9">&nbsp;</td>
+								<td width="10%" class="gc alc light_header">Class Number</td>
+								<td width="25%" class="gc alc light_header">Instructor Name</td>
+								<td width="10%" class="gc alc light_header">Number of Students / Capacity</td>
+								<td width="40%" class="gc alc light_header">Classes Time</td>
+							</tr>
+	
+	<tr>
+		<td width="15%" class="gc alc" bgcolor="#e9e9e9">Lecture</td>
+		<td width="10%" class="gc alc">1</td>
+		<td width="25%" class="gc alc">Nasser Abdel Jaleel Muhammad Ismail</td>
+		<td width="10%" class="gc alc">18 / 45</td>
+		<td width="40%" class="gc schd">
+			<table width="100%" align="center" dir="ltr">
+				<tr>
+					<td align='center'>M, W</td>
+                <td align='center'>11:25 - 12:40</td>
+                <td align='center'>Bamieh105</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+
+	</table>
+	</td>
+	</tr>
+	</table>
+	</tr>
+</table>
+
+<p align="center">
+	
+</p>
+
+            <!-- Content Content End -->
+        </div>
+        
+            <div class="footer_container">
+                <hr size="1" color="#ababab"/>
+                
+<div dir='ltr'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='/images/bzu_logo.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+
+    <div style='float: left; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2022
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            Birzeit University
+        </a>.
+        All Rights Reserved
+        <br>
+        <div style="display: inline-block;">
+            <img src="/images/icons/mail.png" alt="Email" />
+            <a href="https://ritaj.birzeit.edu/emails">عناوين البريد الإلكتروني للتواصل مع الجامعة</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="/images/icons/tel.png" alt="Tel" />
+            <span dir="ltr">+970-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="/images/icons/medical.jpg" alt="medical clinc" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="/images/icons/guard.jpg" alt="univeristy guards" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+</div>
+            </div>
+        
+    </body>
+</html>

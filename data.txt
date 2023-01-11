@@ -1,0 +1,56 @@
+course_code;course_name;sections;teachers
+ENCS2110;DIGITAL ELECTRONICS AND COMPUTER ORGANIZATION LABORATORY;8;{'Jamal Othman Hosen Seyam': 1, 'Ibrahim Ahmed Abdallah Nemer': 1, 'Ismail Mohammad Mousa Khater': 2, 'Adnan Hussein Mahmoud Yahya': 2, 'Khader Shehadeh Nassar Mohammad': 1, 'Bilal Jafar Hamed Karaki': 1}
+ENCS2340;DIGITAL SYSTEMS;8;{'Ismail Mohammad Mousa Khater': 2, 'Mohammed Sami Abdul Karim Hussein': 1, 'Bilal Jafar Hamed Karaki': 1, 'Anjad Jamal Rushdi Badran': 2, 'Ibrahim Ahmed Abdallah Nemer': 1, 'Ali Hasan Moath Abdo': 1}
+ENCS2380;COMPUTER ORGANIZATION AND MICROPROCESSOR;2;{'Abualseoud Ahmad Abualseoud Hanani': 2}
+ENCS311;ASSEMBLY LANGUAGE LABORATORY;1;{'Abualseoud Ahmad Abualseoud Hanani': 1}
+ENCS3130;LINUX LABORATORY;5;{'Mohammad Khaleel Issa Jubran': 3, 'Khader Shehadeh Nassar Mohammad': 1, 'Aziz Mohammed Ahmad Qaroush': 1}
+ENCS3310;ADVANCED DIGITAL SYSTEMS DESIGN;2;{'Abdallatif S. A. Abuissa': 2}
+ENCS3320;COMPUTER NETWORKS;3;{'Abdalkarim Ishaq Ibraheem Awad': 2, 'Ibrahim Ahmed Abdallah Nemer': 1}
+ENCS3330;DIGITAL INTEGRATED CIRCUITS;2;{'Khader Shehadeh Nassar Mohammad': 2}
+ENCS3340;ARTIFICIAL INTELLIGENCE;2;{'Aziz Mohammed Ahmad Qaroush': 2}
+ENCS3341;EMBEDDED SYSTEMS;1;{'Mohammed H. S. Helal': 1}
+ENCS336;COMPUTER ORGANIZATION AND ASSEMBLY LANGUAGE;2;{'Mohammed H. S. Helal': 2}
+ENCS3390;OPERATING SYSTEMS;4;{'Yazan Jamal Ibrahim Abu Farha': 2, 'Bashar Mohammad Abdul Khaliq Tahayna': 2}
+ENCS411;COMPUTER DESIGN LAB;2;{'Abdallatif S. A. Abuissa': 2}
+ENCS4110;COMPUTER DESIGN LABORATORY;5;{'Abualseoud Ahmad Abualseoud Hanani': 3, 'Ayman Ali Mohammad Hroub': 2}
+ENCS412;INTERFACING LABORATORY;3;{'Jamal Othman Hosen Seyam': 1, 'Wasel Tahsin Ahmad Ghanem': 2}
+ENCS4130;COMPUTER NETWORK LABORATORY;9;{'Ibrahim Ahmed Abdallah Nemer': 3, 'Bashar Mohammad Abdul Khaliq Tahayna': 1, 'Ismail Mohammad Mousa Khater': 2, 'Mohammed H. S. Helal': 2, 'Abdalkarim Ishaq Ibraheem Awad': 1}
+ENCS4310;DIGITAL SIGNAL PROCESSING (DSP);3;{'Alhareth M. T. Zyoud': 1, 'Qadri A. A. Mayyala': 2}
+ENCS4320;APPLIED CRYPTOGRAPHY;3;{'Ahmad Saleh Ibrahim Alsadeh': 3}
+ENCS4330;REAL-TIME APPLICATIONS AND EMBEDDED SYSTEMS;2;{'Hanna Saba Hanna Bullata': 2}
+ENCS4370;COMPUTER ARCHITECTURE;3;{'Ayman Ali Mohammad Hroub': 2, 'Aziz Mohammed Ahmad Qaroush': 1}
+ENCS4380;INTERFACING TECHNIQUES;2;{'Wasel Tahsin Ahmad Ghanem': 2}
+ENCS514;REAL-TIME SYSTEMS LAB;4;{'Hanna Saba Hanna Bullata': 3, 'Aziz Mohammed Ahmad Qaroush': 1}
+ENCS5150;ADVANCED COMPUTER SYSTEMS ENGINEERING LABORATORY;4;{'Yazan Jamal Ibrahim Abu Farha': 2, 'Mohammed Sami Abdul Karim Hussein': 2}
+ENCS5322;NETWORK SECURITY PROTOCOLS;1;{'Ahmad Saleh Ibrahim Alsadeh': 1}
+ENCS5332;VLSI DESIGN;1;{'Khader Shehadeh Nassar Mohammad': 1}
+ENCS5341;MACHINE LEARNING AND DATA SCIENCE;1;{'Yazan Jamal Ibrahim Abu Farha': 1}
+ENCS5399;SP.TOP: VERIFICATION AND VALIDATION OF HARDWARE;1;{'Ayman Ali Mohammad Hroub': 1}
+ENEE2101;BASIC ELECTRICAL ENGINEERING LAB;1;{"Jaser Abdel Mon'En Fayiz Sa'Ed": 1}
+ENEE2102;CIRCUITS LAB;1;{"Jaser Abdel Mon'En Fayiz Sa'Ed": 1}
+ENEE2103;CIRCUITS AND ELECTRONICS LABORATORY;3;{"Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh": 2, 'Nasser Abdel Jaleel Muhammad Ismail': 1}
+ENEE2304;CIRCUIT ANALYSIS;2;{"Jaser Abdel Mon'En Fayiz Sa'Ed": 1, "Hakam Suleiman Nu'Man Shehadeh": 1}
+ENEE2307;PROBABILITY AND ENGINEERING STATISTICS;5;{'Mohammad Khaleel Issa Jubran': 2, 'Alhareth M. T. Zyoud': 2, "Jaser Abdel Mon'En Fayiz Sa'Ed": 1}
+ENEE2311;NETWORK ANALYSIS 1;2;{'Alhareth M. T. Zyoud': 1, 'Ali Hasan Moath Abdo': 1}
+ENEE2312;SIGNALS AND SYSTEMS;2;{'Jamal Othman Hosen Seyam': 2}
+ENEE2360;ANALOG ELECTRONICS;3;{'Nasser Abdel Jaleel Muhammad Ismail': 2, "Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh": 1}
+ENEE3101;ELECTRICAL MACHINES LAB;2;{'Ali Hasan Moath Abdo': 2}
+ENEE3103;ANALOG ELECTRONICS LAB  (FOR MECHATRONIC STUDENTS);1;{"Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh": 1}
+ENEE3112;ELECTRONICS LAB;2;{'Nasser Abdel Jaleel Muhammad Ismail': 1, "Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh": 1}
+ENEE3302;CONTROL SYSTEMS;1;{'Jamal Othman Hosen Seyam': 1}
+ENEE3304;ELECTRONICS 2;1;{"Mohammad Jehad Mohammad A'Ta Husni Al Ju'Beh": 1}
+ENEE3305;POWER ELECTRONICS;1;{'Muhammad Sharif Mustafa Abu-Khaizaran': 1}
+ENEE3307;LIGHTING AND ACOUSTICS ENGINEERING;2;{'Hussein Awadallah Ibrahim Zeitawi': 1, "Hakam Suleiman Nu'Man Shehadeh": 1}
+ENEE3308;ELECTROMECHANICAL PRINCIPLES AND APPLICATIONS;1;{"Hakam Suleiman Nu'Man Shehadeh": 1}
+ENEE3309;COMMUNICATION SYSTEMS;4;{'Wael A. M. Hashlamoun': 1, 'Ashraf Sulieman Awad Al-Rimawi': 2, 'Qadri A. A. Mayyala': 1}
+ENEE3318;ELECTROMAGNETICS;1;{'Ashraf Sulieman Awad Al-Rimawi': 1}
+ENEE4102;FUNDAMENTALS OF ELECTRICAL MACHINES LAB.;2;{'Muhammad Sharif Mustafa Abu-Khaizaran': 1, 'Ali Hasan Moath Abdo': 1}
+ENEE4104;ENGINEERING SIMULATION LAB;1;{'Jamal Othman Hosen Seyam': 1}
+ENEE4105;CONTROL AND POWER ELECTRONICS LAB;1;{"Hakam Suleiman Nu'Man Shehadeh": 1}
+ENEE4113;COMMUNICATIONS LAB;6;{'Alhareth M. T. Zyoud': 1, 'Ashraf Sulieman Awad Al-Rimawi': 2, 'Qadri A. A. Mayyala': 2, 'Wael A. M. Hashlamoun': 1}
+ENEE4302;CONTROL SYSTEMS 1;1;{'Jamal Othman Hosen Seyam': 1}
+ENEE4303;ELECTRICAL MACHINES FUNDAMENTALS;1;{'Ali Hasan Moath Abdo': 1}
+ENEE5102;POWER LAB;1;{"Hakam Suleiman Nu'Man Shehadeh": 1}
+ENEE5303;ELECTRICAL MACHINE DRIVES AND SPECIAL MACHINES;1;{'Mahran S. R. Quraan': 1}
+ENEE5304;INFORMATION AND CODING THEORY;1;{'Wael A. M. Hashlamoun': 1}
+ENEE5307;RENEWABLE ENERGY AND PHOTOVOLTAIC POWER SYSTEMS;1;{'Nasser Abdel Jaleel Muhammad Ismail': 1}
