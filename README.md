@@ -31,15 +31,5 @@ As we notice the conclicts are going up, which is not good for our schedule, and
 
 ## Resonable Minimizing
 As shown earilir optimizing one aspect is a poor aproach so we are going to run an optimized way with giving resonable weight for each penalty.
-```python
-# For each course
-fitness = fitness + 11*(len(days_set) + len(slots_set))/len(course[2])
-fitness = fitness - abs(1*days_count.get(("M", "W"), 0)+0.5*days_count.get(("S", "M"), 0)+0.5*days_count.get(("S", "W"), 0) - 2*days_count.get(("T", "R"),0))*8
-fitness /= len(schedule)
-# For the whole schedule
-fitness = fitness + (-1*early - 5*late - 15*saturday - 20*conflict
-fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
-        
-```
 ![[assets/Pasted image 20230113150148.png]]
 As we can see in the picture above we cut the Saturday slots almost by half, reduce the conflicts to almost minimum; minimum is 33 as stated on the report, we minimized the late by half, we can rather minimize the any attribute by increasing its penalty. And as we can see in the [Schedule](templates/optimized.html) our course are fairly distributed. 
