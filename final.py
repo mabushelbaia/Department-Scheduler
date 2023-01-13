@@ -98,4 +98,4 @@ def run_ga(initial_population: int, mutation_rate: float, generations: int, size
     print_schedule(population[0])
     with open("schedule.txt", "w") as f:
         f.write(str(population[0].courses))
-run_ga(initial_population=100, mutation_rate=0.3, generations=1000, size=100)
+run_ga(initial_population=100, mutation_rate=0.3, generations=1000, size=10)

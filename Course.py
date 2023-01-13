@@ -151,7 +151,7 @@ class Chromosome:
         for conflict in conflicts.values():
             for value in conflict.values():
                 conflict_sum += value - 1
-        fitness = fitness + (-1*early_penalty - 10*late_penalty - 15*saturday_penalty  - 20*conflict_sum) # /10 - 1*sequenctial_pelanty
+        fitness = fitness + (-1*early_penalty - 15*late_penalty - 15*saturday_penalty  - 20*conflict_sum) # /10 - 1*sequenctial_pelanty
         fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
         fitness /= len(schedule)
         return fitness, teacher_slots, [conflict_sum, sequenctial_pelanty, early_penalty, late_penalty, saturday_penalty]
