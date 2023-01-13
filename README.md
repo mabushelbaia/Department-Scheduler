@@ -37,3 +37,5 @@ As shown earilir optimizing one aspect is a poor aproach so we are going to run 
 ![test](https://user-images.githubusercontent.com/47891125/212328849-eb3560c7-f6fb-40e6-a26d-3a7847a0832f.png)
 
 As we can see in the picture above we cut the Saturday slots almost by half, reduce the conflicts to almost minimum; minimum is 33 as stated on the report, we minimized the late by half, we can rather minimize the any attribute by increasing its penalty. And as we can see in the [Schedule](templates/optimized.html) our course are fairly distributed. 
+
+PS: The html file will open in github if you are using the browser instated of download the repo.
