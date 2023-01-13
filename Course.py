@@ -73,6 +73,13 @@ def print_schedule(schedule: Schedule) -> None:
         f.write("<html>")
         f.write("<head>")
         f.write("""
+        <style>
+        :root {
+        --maincolor: #222831;
+        --secondcolor: #393E46;
+        --thirdcolor: #0078ab;
+        --fourthcolor: #EEEEEE;
+        }
         body {
         margin: 0;
         color: var(--fourthcolor);
@@ -268,14 +275,14 @@ class Chromosome:
                     saturday_penalty += 1
                 conflicts[course[0]][slot] = conflicts[course[0]].get(slot, 0) + 1
                 unique_slots.add(slot)
-                fitness = fitness + 11*(len(days_set) + len(slots_set))/len(course[2])
+                fitness = fitness + 15*(len(slots_set)+len(days_set))/len(course[2])
                 if course[1] == "Lecture":
-                    fitness = fitness - abs(1*days_count.get(("M", "W"), 0)+0.5*days_count.get(("S", "M"), 0)+0.5*days_count.get(("S", "W"), 0) - 2*days_count.get(("T", "R"),0))*8
-        fitness /= len(schedule)
+                    fitness = fitness - abs(1*days_count.get(("M", "W"), 0)+0.5*days_count.get(("S", "M"), 0)+0.5*days_count.get(("S", "W"), 0) - 2*days_count.get(("T", "R"),0))*10
         conflict_sum = 0
         for conflict in conflicts.values():
             for value in conflict.values():
                 conflict_sum += value - 1
-        fitness = fitness + (-1*early_penalty - 5*late_penalty - 15*saturday_penalty  - 25*conflict_sum)
+        fitness = fitness + (-1*early_penalty - 15*late_penalty - 12*saturday_penalty  - 20*conflict_sum)
         fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
+        fitness /= len(schedule)
         return fitness, teacher_slots, [conflict_sum, sequenctial_pelanty, early_penalty, late_penalty, saturday_penalty]

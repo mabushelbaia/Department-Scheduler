@@ -41,6 +41,6 @@ fitness = fitness + (-1*early - 5*late - 15*saturday - 20*conflict
 fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
         
 ```
-![[Pasted image 20230113142141.png]]
+![[Pasted image 20230113150148.png]]
 
-As we can see in the picture above we cut the Saturday slots almost by half, reduce the conflicts to almost minimum; minimum is 33 as stated on the report, we minimized the late labs by 4 labs, we can rather minimize the latter by increasing its penalty. And as we can see in the [Schedule](templates/optimized.html) our course are fairly distributed. 
+As we can see in the picture above we cut the Saturday slots almost by half, reduce the conflicts to almost minimum; minimum is 33 as stated on the report, we minimized the late by half, we can rather minimize the any attribute by increasing its penalty. And as we can see in the [Schedule](templates/optimized.html) our course are fairly distributed. 
