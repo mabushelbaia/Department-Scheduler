@@ -3,7 +3,8 @@ from Course import *
 from typing import *
 import time
 import random
-#  add comments for the whole file
+
+
 Population = list[Chromosome]
 
 
@@ -76,7 +77,7 @@ def run_ga(initial_population: int, mutation_rate: float, generations: int, size
     start = time.time()
     for j in range(generations):
         population = population[:size]
-        for i in range(int(len(population) * 0.8)):
+        for i in range(int(len(population)//2)):
             parents = selection(population, 2)
             offspring = crossover(parents[0], parents[1])
             offspring = [mutation(offspring[0], mutation_rate), mutation(
@@ -95,6 +96,6 @@ def run_ga(initial_population: int, mutation_rate: float, generations: int, size
     print("Top 5: ", ", ".join([str(x.fitness) for x in population[:5]]))
     print("Schedule: ")
     print_schedule(population[0])
-
-
+    with open("schedule.txt", "w") as f:
+        f.write(str(population[0].courses))
 run_ga(initial_population=100, mutation_rate=0.3, generations=1000, size=100)

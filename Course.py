@@ -144,14 +144,14 @@ class Chromosome:
                 unique_slots.add(slot)
                 fitness = fitness + 10*(len(days_set) + len(slots_set))/len(course[2])
                 if course[1] == "Lecture":
-                    fitness = fitness - abs(days_count.get(("M", "W"), 0)+days_count.get(("S", "M"), 0)+days_count.get(("S", "W"), 0) - days_count.get(("T", "R"),0))*5
+                    fitness = fitness - abs(days_count.get(("M", "W"), 0)+days_count.get(("S", "M"), 0)+days_count.get(("S", "W"), 0) - days_count.get(("T", "R"),0))*7
 
         # fitness /= len(schedule)
         conflict_sum = 0
         for conflict in conflicts.values():
             for value in conflict.values():
                 conflict_sum += value - 1
-        fitness = fitness + (-1*early_penalty - 2*late_penalty - 14*saturday_penalty  - 10*conflict_sum) # /10 - 1*sequenctial_pelanty
+        fitness = fitness + (-1*early_penalty - 10*late_penalty - 15*saturday_penalty  - 20*conflict_sum) # /10 - 1*sequenctial_pelanty
         fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
         fitness /= len(schedule)
         return fitness, teacher_slots, [conflict_sum, sequenctial_pelanty, early_penalty, late_penalty, saturday_penalty]
