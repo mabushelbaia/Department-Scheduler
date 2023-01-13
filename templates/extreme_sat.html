@@ -1,0 +1,555 @@
+<html><head>
+        <style>
+        :root {
+        --maincolor: #222831;
+        --secondcolor: #393E46;
+        --thirdcolor: #0078ab;
+        --fourthcolor: #EEEEEE;
+        }
+        body {
+        margin: 0;
+        color: var(--fourthcolor);
+        height: 100vh;
+        background: var(--thirdcolor);
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+        }
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        table td, table th {
+            text-align: center;
+            padding: 12px;
+        }
+        
+        table tr:nth-child(even){background-color: var(--secondcolor);}
+        table tr:nth-child(odd){background-color: var(--maincolor);}
+        td:nth-child(5) {
+            text-align: left;
+        }
+        td:nth-child(6) {
+            text-align: left;
+        }
+        td:nth-child(7) {
+            text-align: left;
+        }
+        table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: var(--thirdcolor);
+            color: var(--fourthcolor);
+        }
+        </style>
+        </head><body><div><table>
+    <thead>
+        <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th># Sections</th>
+            <th>Year</th>
+            <th>Type</th>
+            <th>Sections</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ENCS2110</td>
+            <td>DIGITAL ELECTRONICS AND COMPUTER ORGANIZATION LABORATORY</td>
+            <td>8</td>
+            <td>2</td>
+            <td>Lab</td>
+            <td>Jamal Othman Hosen Seyam<br>Ibrahim Ahmed Abdallah Nemer<br>Bilal Jafar Hamed Karaki<br>Khader Shehadeh Nassar Mohammad<br>Ismail Mohammad Mousa Khater<br>Adnan Hussein Mahmoud Yahya<br>Ismail Mohammad Mousa Khater<br>Adnan Hussein Mahmoud Yahya</td>
+            <td>M : 14:15 - 16:55<br>M : 08:30 - 11:10<br>M : 11:25 - 14:05<br>R : 08:30 - 11:10<br>T : 08:30 - 11:10<br>T : 11:25 - 14:05<br>W : 11:25 - 14:05<br>W : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENCS2340</td>
+            <td>DIGITAL SYSTEMS</td>
+            <td>8</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Anjad Jamal Rushdi Badran<br>Anjad Jamal Rushdi Badran<br>Ibrahim Ahmed Abdallah Nemer<br>Ismail Mohammad Mousa Khater<br>Ismail Mohammad Mousa Khater<br>Mohammed Sami Abdul Karim Hussein<br>Bilal Jafar Hamed Karaki<br>Ali Hasan Moath Abdo</td>
+            <td>M, W : 12:50 - 14:05<br>S, W : 12:50 - 14:05<br>S, W : 12:50 - 14:05<br>T, R : 08:30 - 09:45<br>T, R : 10:00 - 11:15<br>T, R : 08:30 - 09:45<br>T, R : 08:30 - 09:45<br>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS2380</td>
+            <td>COMPUTER ORGANIZATION AND MICROPROCESSOR</td>
+            <td>2</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Abualseoud Ahmad Abualseoud Hanani<br>Abualseoud Ahmad Abualseoud Hanani</td>
+            <td>M, W : 12:50 - 14:05<br>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE2101</td>
+            <td>BASIC ELECTRICAL ENGINEERING LAB</td>
+            <td>1</td>
+            <td>2</td>
+            <td>Lab</td>
+            <td>Jaser Abdel Mon&#x27;En Fayiz Sa&#x27;Ed</td>
+            <td>R : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE2102</td>
+            <td>CIRCUITS LAB</td>
+            <td>1</td>
+            <td>2</td>
+            <td>Lab</td>
+            <td>Jaser Abdel Mon&#x27;En Fayiz Sa&#x27;Ed</td>
+            <td>T : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE2103</td>
+            <td>CIRCUITS AND ELECTRONICS LABORATORY</td>
+            <td>3</td>
+            <td>2</td>
+            <td>Lab</td>
+            <td>Mohammad Jehad Mohammad A&#x27;Ta Husni Al Ju&#x27;Beh<br>Nasser Abdel Jaleel Muhammad Ismail<br>Mohammad Jehad Mohammad A&#x27;Ta Husni Al Ju&#x27;Beh</td>
+            <td>M : 14:15 - 16:55<br>M : 11:25 - 14:05<br>R : 14:15 - 16:55</td>
+        </tr>
+        <tr>
+            <td>ENEE2304</td>
+            <td>CIRCUIT ANALYSIS</td>
+            <td>2</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Jaser Abdel Mon&#x27;En Fayiz Sa&#x27;Ed<br>Hakam Suleiman Nu&#x27;Man Shehadeh</td>
+            <td>M, W : 12:50 - 14:05<br>M, W : 11:25 - 12:40</td>
+        </tr>
+        <tr>
+            <td>ENEE2307</td>
+            <td>PROBABILITY AND ENGINEERING STATISTICS</td>
+            <td>5</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Mohammad Khaleel Issa Jubran<br>Mohammad Khaleel Issa Jubran<br>Alhareth M. T. Zyoud<br>Jaser Abdel Mon&#x27;En Fayiz Sa&#x27;Ed<br>Alhareth M. T. Zyoud</td>
+            <td>M, W : 12:50 - 14:05<br>M, W : 08:30 - 09:45<br>M, W : 10:00 - 11:15<br>M, W : 11:25 - 12:40<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENEE2311</td>
+            <td>NETWORK ANALYSIS 1</td>
+            <td>2</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Ali Hasan Moath Abdo<br>Alhareth M. T. Zyoud</td>
+            <td>M, W : 12:50 - 14:05<br>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE2312</td>
+            <td>SIGNALS AND SYSTEMS</td>
+            <td>2</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Jamal Othman Hosen Seyam<br>Jamal Othman Hosen Seyam</td>
+            <td>M, W : 08:30 - 09:45<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENEE2360</td>
+            <td>ANALOG ELECTRONICS</td>
+            <td>3</td>
+            <td>2</td>
+            <td>Lecture</td>
+            <td>Nasser Abdel Jaleel Muhammad Ismail<br>Nasser Abdel Jaleel Muhammad Ismail<br>Mohammad Jehad Mohammad A&#x27;Ta Husni Al Ju&#x27;Beh</td>
+            <td>M, W : 10:00 - 11:15<br>T, R : 10:00 - 11:15<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS311</td>
+            <td>ASSEMBLY LANGUAGE LABORATORY</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lab</td>
+            <td>Abualseoud Ahmad Abualseoud Hanani</td>
+            <td>T : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS3130</td>
+            <td>LINUX LABORATORY</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Lab</td>
+            <td>Mohammad Khaleel Issa Jubran<br>Mohammad Khaleel Issa Jubran<br>Aziz Mohammed Ahmad Qaroush<br>Mohammad Khaleel Issa Jubran<br>Khader Shehadeh Nassar Mohammad</td>
+            <td>R : 11:25 - 14:05<br>R : 08:30 - 11:10<br>R : 14:15 - 16:55<br>T : 14:15 - 16:55<br>T : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENCS3310</td>
+            <td>ADVANCED DIGITAL SYSTEMS DESIGN</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Abdallatif S. A. Abuissa<br>Abdallatif S. A. Abuissa</td>
+            <td>M, W : 11:25 - 12:40<br>M, W : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS3320</td>
+            <td>COMPUTER NETWORKS</td>
+            <td>3</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Abdalkarim Ishaq Ibraheem Awad<br>Abdalkarim Ishaq Ibraheem Awad<br>Ibrahim Ahmed Abdallah Nemer</td>
+            <td>M, W : 11:25 - 12:40<br>T, R : 12:50 - 14:05<br>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS3330</td>
+            <td>DIGITAL INTEGRATED CIRCUITS</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Khader Shehadeh Nassar Mohammad<br>Khader Shehadeh Nassar Mohammad</td>
+            <td>M, W : 12:50 - 14:05<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS3340</td>
+            <td>ARTIFICIAL INTELLIGENCE</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Aziz Mohammed Ahmad Qaroush<br>Aziz Mohammed Ahmad Qaroush</td>
+            <td>M, W : 12:50 - 14:05<br>M, W : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS3341</td>
+            <td>EMBEDDED SYSTEMS</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Mohammed H. S. Helal</td>
+            <td>S, W : 11:25 - 12:40</td>
+        </tr>
+        <tr>
+            <td>ENCS336</td>
+            <td>COMPUTER ORGANIZATION AND ASSEMBLY LANGUAGE</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Mohammed H. S. Helal<br>Mohammed H. S. Helal</td>
+            <td>M, W : 12:50 - 14:05<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS3390</td>
+            <td>OPERATING SYSTEMS</td>
+            <td>4</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Yazan Jamal Ibrahim Abu Farha<br>Yazan Jamal Ibrahim Abu Farha<br>Bashar Mohammad Abdul Khaliq Tahayna<br>Bashar Mohammad Abdul Khaliq Tahayna</td>
+            <td>M, W : 11:25 - 12:40<br>M, W : 10:00 - 11:15<br>M, W : 11:25 - 12:40<br>T, R : 11:25 - 12:40</td>
+        </tr>
+        <tr>
+            <td>ENEE3101</td>
+            <td>ELECTRICAL MACHINES LAB</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lab</td>
+            <td>Ali Hasan Moath Abdo<br>Ali Hasan Moath Abdo</td>
+            <td>T : 08:30 - 11:10<br>W : 14:15 - 16:55</td>
+        </tr>
+        <tr>
+            <td>ENEE3103</td>
+            <td>ANALOG ELECTRONICS LAB  (FOR MECHATRONIC STUDENTS)</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lab</td>
+            <td>Mohammad Jehad Mohammad A&#x27;Ta Husni Al Ju&#x27;Beh</td>
+            <td>T : 14:15 - 16:55</td>
+        </tr>
+        <tr>
+            <td>ENEE3112</td>
+            <td>ELECTRONICS LAB</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lab</td>
+            <td>Nasser Abdel Jaleel Muhammad Ismail<br>Mohammad Jehad Mohammad A&#x27;Ta Husni Al Ju&#x27;Beh</td>
+            <td>R : 14:15 - 16:55<br>T : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE3302</td>
+            <td>CONTROL SYSTEMS</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Jamal Othman Hosen Seyam</td>
+            <td>M, W : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENEE3304</td>
+            <td>ELECTRONICS 2</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Mohammad Jehad Mohammad A&#x27;Ta Husni Al Ju&#x27;Beh</td>
+            <td>M, W : 11:25 - 12:40</td>
+        </tr>
+        <tr>
+            <td>ENEE3305</td>
+            <td>POWER ELECTRONICS</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Muhammad Sharif Mustafa Abu-Khaizaran</td>
+            <td>T, R : 11:25 - 12:40</td>
+        </tr>
+        <tr>
+            <td>ENEE3307</td>
+            <td>LIGHTING AND ACOUSTICS ENGINEERING</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Hussein Awadallah Ibrahim Zeitawi<br>Hakam Suleiman Nu&#x27;Man Shehadeh</td>
+            <td>T, R : 08:30 - 09:45<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENEE3308</td>
+            <td>ELECTROMECHANICAL PRINCIPLES AND APPLICATIONS</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Hakam Suleiman Nu&#x27;Man Shehadeh</td>
+            <td>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE3309</td>
+            <td>COMMUNICATION SYSTEMS</td>
+            <td>4</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Wael A. M. Hashlamoun<br>Ashraf Sulieman Awad Al-Rimawi<br>Qadri A. A. Mayyala<br>Ashraf Sulieman Awad Al-Rimawi</td>
+            <td>M, W : 12:50 - 14:05<br>M, W : 10:00 - 11:15<br>M, W : 11:25 - 12:40<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENEE3318</td>
+            <td>ELECTROMAGNETICS</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Lecture</td>
+            <td>Ashraf Sulieman Awad Al-Rimawi</td>
+            <td>T, R : 11:25 - 12:40</td>
+        </tr>
+        <tr>
+            <td>ENCS411</td>
+            <td>COMPUTER DESIGN LAB</td>
+            <td>2</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Abdallatif S. A. Abuissa<br>Abdallatif S. A. Abuissa</td>
+            <td>R : 11:25 - 14:05<br>W : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENCS4110</td>
+            <td>COMPUTER DESIGN LABORATORY</td>
+            <td>5</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Abualseoud Ahmad Abualseoud Hanani<br>Abualseoud Ahmad Abualseoud Hanani<br>Ayman Ali Mohammad Hroub<br>Abualseoud Ahmad Abualseoud Hanani<br>Ayman Ali Mohammad Hroub</td>
+            <td>M : 08:30 - 11:10<br>T : 08:30 - 11:10<br>T : 14:15 - 16:55<br>W : 08:30 - 11:10<br>W : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS412</td>
+            <td>INTERFACING LABORATORY</td>
+            <td>3</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Jamal Othman Hosen Seyam<br>Wasel Tahsin Ahmad Ghanem<br>Wasel Tahsin Ahmad Ghanem</td>
+            <td>R : 11:25 - 14:05<br>R : 08:30 - 11:10<br>W : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS4130</td>
+            <td>COMPUTER NETWORK LABORATORY</td>
+            <td>9</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Ismail Mohammad Mousa Khater<br>Mohammed H. S. Helal<br>Ibrahim Ahmed Abdallah Nemer<br>Bashar Mohammad Abdul Khaliq Tahayna<br>Ismail Mohammad Mousa Khater<br>Ibrahim Ahmed Abdallah Nemer<br>Ibrahim Ahmed Abdallah Nemer<br>Mohammed H. S. Helal<br>Abdalkarim Ishaq Ibraheem Awad</td>
+            <td>M : 08:30 - 11:10<br>M : 14:15 - 16:55<br>R : 11:25 - 14:05<br>R : 14:15 - 16:55<br>R : 08:30 - 11:10<br>T : 08:30 - 11:10<br>T : 11:25 - 14:05<br>W : 08:30 - 11:10<br>W : 14:15 - 16:55</td>
+        </tr>
+        <tr>
+            <td>ENCS4310</td>
+            <td>DIGITAL SIGNAL PROCESSING (DSP)</td>
+            <td>3</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Alhareth M. T. Zyoud<br>Qadri A. A. Mayyala<br>Qadri A. A. Mayyala</td>
+            <td>M, W : 08:30 - 09:45<br>M, W : 12:50 - 14:05<br>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS4320</td>
+            <td>APPLIED CRYPTOGRAPHY</td>
+            <td>3</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Ahmad Saleh Ibrahim Alsadeh<br>Ahmad Saleh Ibrahim Alsadeh<br>Ahmad Saleh Ibrahim Alsadeh</td>
+            <td>M, W : 10:00 - 11:15<br>T, R : 08:30 - 09:45<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS4330</td>
+            <td>REAL-TIME APPLICATIONS AND EMBEDDED SYSTEMS</td>
+            <td>2</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Hanna Saba Hanna Bullata<br>Hanna Saba Hanna Bullata</td>
+            <td>M, W : 08:30 - 09:45<br>T, R : 10:00 - 11:15</td>
+        </tr>
+        <tr>
+            <td>ENCS4370</td>
+            <td>COMPUTER ARCHITECTURE</td>
+            <td>3</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Ayman Ali Mohammad Hroub<br>Ayman Ali Mohammad Hroub<br>Aziz Mohammed Ahmad Qaroush</td>
+            <td>T, R : 10:00 - 11:15<br>T, R : 12:50 - 14:05<br>T, R : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENCS4380</td>
+            <td>INTERFACING TECHNIQUES</td>
+            <td>2</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Wasel Tahsin Ahmad Ghanem<br>Wasel Tahsin Ahmad Ghanem</td>
+            <td>M, W : 12:50 - 14:05<br>T, R : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENEE4102</td>
+            <td>FUNDAMENTALS OF ELECTRICAL MACHINES LAB.</td>
+            <td>2</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Ali Hasan Moath Abdo<br>Muhammad Sharif Mustafa Abu-Khaizaran</td>
+            <td>M : 11:25 - 14:05<br>R : 14:15 - 16:55</td>
+        </tr>
+        <tr>
+            <td>ENEE4104</td>
+            <td>ENGINEERING SIMULATION LAB</td>
+            <td>1</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Jamal Othman Hosen Seyam</td>
+            <td>W : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENEE4105</td>
+            <td>CONTROL AND POWER ELECTRONICS LAB</td>
+            <td>1</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Hakam Suleiman Nu&#x27;Man Shehadeh</td>
+            <td>T : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENEE4113</td>
+            <td>COMMUNICATIONS LAB</td>
+            <td>6</td>
+            <td>4</td>
+            <td>Lab</td>
+            <td>Ashraf Sulieman Awad Al-Rimawi<br>Qadri A. A. Mayyala<br>Ashraf Sulieman Awad Al-Rimawi<br>Alhareth M. T. Zyoud<br>Qadri A. A. Mayyala<br>Wael A. M. Hashlamoun</td>
+            <td>M : 08:30 - 11:10<br>M : 11:25 - 14:05<br>R : 11:25 - 14:05<br>T : 08:30 - 11:10<br>T : 11:25 - 14:05<br>W : 11:25 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE4302</td>
+            <td>CONTROL SYSTEMS 1</td>
+            <td>1</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Jamal Othman Hosen Seyam</td>
+            <td>M, W : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE4303</td>
+            <td>ELECTRICAL MACHINES FUNDAMENTALS</td>
+            <td>1</td>
+            <td>4</td>
+            <td>Lecture</td>
+            <td>Ali Hasan Moath Abdo</td>
+            <td>T, R : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENCS514</td>
+            <td>REAL-TIME SYSTEMS LAB</td>
+            <td>4</td>
+            <td>5</td>
+            <td>Lab</td>
+            <td>Hanna Saba Hanna Bullata<br>Hanna Saba Hanna Bullata<br>Aziz Mohammed Ahmad Qaroush<br>Hanna Saba Hanna Bullata</td>
+            <td>M : 08:30 - 11:10<br>M : 11:25 - 14:05<br>R : 08:30 - 11:10<br>T : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENCS5150</td>
+            <td>ADVANCED COMPUTER SYSTEMS ENGINEERING LABORATORY</td>
+            <td>4</td>
+            <td>5</td>
+            <td>Lab</td>
+            <td>Yazan Jamal Ibrahim Abu Farha<br>Yazan Jamal Ibrahim Abu Farha<br>Mohammed Sami Abdul Karim Hussein<br>Mohammed Sami Abdul Karim Hussein</td>
+            <td>M : 08:30 - 11:10<br>M : 14:15 - 16:55<br>R : 14:15 - 16:55<br>W : 08:30 - 11:10</td>
+        </tr>
+        <tr>
+            <td>ENCS5322</td>
+            <td>NETWORK SECURITY PROTOCOLS</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Ahmad Saleh Ibrahim Alsadeh</td>
+            <td>M, W : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENCS5332</td>
+            <td>VLSI DESIGN</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Khader Shehadeh Nassar Mohammad</td>
+            <td>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENCS5341</td>
+            <td>MACHINE LEARNING AND DATA SCIENCE</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Yazan Jamal Ibrahim Abu Farha</td>
+            <td>M, W : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENCS5399</td>
+            <td>SP.TOP: VERIFICATION AND VALIDATION OF HARDWARE</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Ayman Ali Mohammad Hroub</td>
+            <td>T, R : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENEE5102</td>
+            <td>POWER LAB</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lab</td>
+            <td>Hakam Suleiman Nu&#x27;Man Shehadeh</td>
+            <td>W : 14:15 - 16:55</td>
+        </tr>
+        <tr>
+            <td>ENEE5303</td>
+            <td>ELECTRICAL MACHINE DRIVES AND SPECIAL MACHINES</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Mahran S. R. Quraan</td>
+            <td>T, R : 12:50 - 14:05</td>
+        </tr>
+        <tr>
+            <td>ENEE5304</td>
+            <td>INFORMATION AND CODING THEORY</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Wael A. M. Hashlamoun</td>
+            <td>M, W : 08:30 - 09:45</td>
+        </tr>
+        <tr>
+            <td>ENEE5307</td>
+            <td>RENEWABLE ENERGY AND PHOTOVOLTAIC POWER SYSTEMS</td>
+            <td>1</td>
+            <td>5</td>
+            <td>Lecture</td>
+            <td>Nasser Abdel Jaleel Muhammad Ismail</td>
+            <td>T, R : 12:50 - 14:05</td>
+        </tr>
+    </tbody>
+</table></div></body></html>
