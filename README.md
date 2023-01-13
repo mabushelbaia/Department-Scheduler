@@ -26,7 +26,7 @@ schedule.txt``` the first is an html page and will be used as a gui, and the lat
 ## Extreme Minimizing One aspect
 Going to an extreme route not giving regard to any other aspect rather than optimizing one aspect
 is going to fail the schedule, e.g., extremely optimizing to have minimum number of days on Saturday.
-![[assests/Pasted image 20230113140624.png]]
+![[assets/Pasted image 20230113140624.png]]
 As we notice the conclicts are going up, which is not good for our schedule, and if we check the [Schedule](templates/extreme_sat.html) we see that the slots are not distributed correctly, for example, digital systems is offered 5 times on (T, R ) out of 8.
 
 ## Resonable Minimizing
@@ -41,5 +41,5 @@ fitness = fitness + (-1*early - 5*late - 15*saturday - 20*conflict
 fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
         
 ```
-![[Pasted image 20230113150148.png]]
+![[assets/Pasted image 20230113150148.png]]
 As we can see in the picture above we cut the Saturday slots almost by half, reduce the conflicts to almost minimum; minimum is 33 as stated on the report, we minimized the late by half, we can rather minimize the any attribute by increasing its penalty. And as we can see in the [Schedule](templates/optimized.html) our course are fairly distributed. 
