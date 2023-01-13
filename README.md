@@ -16,9 +16,7 @@ install required python librariers
 ```bash
 pip install -r requirements.txt
 ```
-Running ```main.py``` will give you an output on the console regarding the schedule attributes as shown below.
-![[assests/Pasted image 20230113131028.png]]
-
+Running ```main.py``` will give you an output on the console regarding the schedule attributes as shown in the examples below
 and it would genereate 2 files under ./templates the first one is ```index.html``` and ```
 schedule.txt``` the first is an html page and will be used as a gui, and the latter is just saving the list of courses in-case its needed.
 
