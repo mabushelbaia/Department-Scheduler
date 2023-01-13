@@ -2,7 +2,9 @@ import prettytable
 import random
 from typing import *
 import numpy as np
-
+import webbrowser
+import os
+import html
 
 Gene = list
 Schedule = list[Gene]
@@ -59,19 +61,133 @@ def generate_chromosome() -> Schedule:
 def print_schedule(schedule: Schedule) -> None:
     schedule = schedule.courses
     pt = prettytable.PrettyTable()
-    # add lines between rows
     pt.hrules = prettytable.ALL
     pt.add_autoindex = True
     pt.set_style(prettytable.DOUBLE_BORDER)
     pt.field_names = ["Course Code", "Course Name",
-                      "Sections", "Year", "Type", "Slots"]
+                    "Sections", "Year", "Type", "Slots"]
     for i, course in enumerate(courses):
-        slots = "\n".join([str(slot) for slot in sorted(
-            schedule[i][2], key=lambda x: x[1][0])])
-        pt.add_row([course.code, course.name, course.sections,
-                   course.year, course.type, slots])
+        slots = "\n".join([f"{slot[0]}:{slot[1]}" for slot in sorted(schedule[i][2], key=lambda x: x[1][0])])
+        # check_boxex = "\n".join(["<input type='checkbox' name='{}' value='{}'>".format((course.code,slot[0]),str(slot[1])) for slot in sorted(schedule[i][2], key=lambda x: x[1][0])])
+        # check_boxex = "<div style='display: flex; flex-direction: column; justify-content: center; align-items: center;'>{}</div>".format(check_boxex)
+        pt.add_row([course.code, course.name, course.sections,course.year, course.type, slots])
     pt.sortby = "Year"
-    print(pt)
+    with open("f.html", "w") as f:
+        f.write("<html>")
+        f.write("<head>")
+        f.write("""
+        <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        table td, table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        table tr:nth-child(even){background-color: #f2f2f2;}
+        
+        table tr:hover {background-color: #ddd;}
+        
+        table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+        </style>
+        """)
+        f.write("</head>")
+        f.write("<body>")
+        f.write("<div>")
+        f.write(pt.get_html_string())
+        f.write("</div>")
+        f.write("</body>")
+        f.write("</html>")
+    # pt_year2 = prettytable.PrettyTable()
+    # pt_year3 = prettytable.PrettyTable()
+    # pt_year4 = prettytable.PrettyTable()
+    # pt_year5 = prettytable.PrettyTable()
+    # pt_year2_enee = prettytable.PrettyTable()
+    # pt_year3_enee = prettytable.PrettyTable()
+    # pt_year4_enee = prettytable.PrettyTable()
+    # pt_year5_enee = prettytable.PrettyTable()
+    # # add lines between rows
+    # for pt in [pt_year2, pt_year3, pt_year4, pt_year5, pt_year2_enee, pt_year3_enee, pt_year4_enee, pt_year5_enee]:
+    #     pt.hrules = prettytable.ALL
+    #     pt.add_autoindex = True
+    #     pt.set_style(prettytable.DOUBLE_BORDER)
+    #     pt.field_names = ["Course Code", "Course Name",
+    #                     "Sections", "Year", "Type", "Slots"]
+    # pt = None
+    # for i, course in enumerate(courses):
+    #     if course.year == 2:
+    #         if course.code[3] == "E":
+    #             pt = pt_year2_enee
+    #         else:
+    #             pt = pt_year2
+    #     if course.year == 3:
+    #         if course.code[3] == "E":
+    #             pt = pt_year3_enee
+    #         else:
+    #             pt = pt_year3
+    #     if course.year == 4:
+    #         if course.code[3] == "E":
+    #             pt = pt_year4_enee
+    #         else:
+    #             pt = pt_year4
+    #     if course.year == 5:
+    #         if course.code[3] == "E":
+    #             pt = pt_year5_enee
+    #         else:
+    #             pt = pt_year5
+        
+    #     slots = "\n".join([str(slot) for slot in sorted(
+    #         schedule[i][2], key=lambda x: x[1][0])])
+    #     pt.add_row([course.code, course.name, course.sections,
+    #             course.year, course.type, slots])
+    # with open("f.html", "w") as f:
+    #     f.write("<html>")
+    #     f.write("<head>")
+    #     f.write("""
+    #     <style>
+    #     table {
+    #       font-family: Arial, Helvetica, sans-serif;
+    #       border-collapse: collapse;
+    #       width: 100%;
+    #     }
+        
+    #     table td, table th {
+    #       border: 1px solid #ddd;
+    #       padding: 8px;
+    #     }
+        
+    #     table tr:nth-child(even){background-color: #f2f2f2;}
+        
+    #     table tr:hover {background-color: #ddd;}
+        
+    #     table th {
+    #       padding-top: 12px;
+    #       padding-bottom: 12px;
+    #       text-align: left;
+    #       background-color: #04AA6D;
+    #       color: white;
+    #     }
+    #     </style>
+    #     """)
+    #     f.write("</head>")
+    #     f.write("<body>")
+    #     arr = [pt_year2, pt_year2_enee, pt_year3, pt_year3_enee, pt_year4, pt_year4_enee, pt_year5, pt_year5_enee]
+    #     for i, table in enumerate(arr):
+    #         f.write(f"<div id='table{i+1}'>")
+    #         f.write(table.get_html_string())
+    #         f.write("</div>")
+    #     f.write("</body>")
+    #     f.write("</html>")
 
 
 class Chromosome:
@@ -144,14 +260,14 @@ class Chromosome:
                 unique_slots.add(slot)
                 fitness = fitness + 10*(len(days_set) + len(slots_set))/len(course[2])
                 if course[1] == "Lecture":
-                    fitness = fitness - abs(days_count.get(("M", "W"), 0)+days_count.get(("S", "M"), 0)+days_count.get(("S", "W"), 0) - days_count.get(("T", "R"),0))*7
+                    fitness = fitness - abs(1*days_count.get(("M", "W"), 0)+0.5*days_count.get(("S", "M"), 0)+0.5*days_count.get(("S", "W"), 0) - 2*days_count.get(("T", "R"),0))*8
 
         # fitness /= len(schedule)
         conflict_sum = 0
         for conflict in conflicts.values():
             for value in conflict.values():
                 conflict_sum += value - 1
-        fitness = fitness + (-1*early_penalty - 15*late_penalty - 15*saturday_penalty  - 20*conflict_sum) # /10 - 1*sequenctial_pelanty
+        fitness = fitness + (-1*early_penalty - 15*late_penalty - 12*saturday_penalty  - 20*conflict_sum) # /10 - 1*sequenctial_pelanty
         fitness *= (len(unique_slots)/(len(lecture_slots)+len(lab_slots)))
         fitness /= len(schedule)
         return fitness, teacher_slots, [conflict_sum, sequenctial_pelanty, early_penalty, late_penalty, saturday_penalty]
